@@ -19,6 +19,8 @@ class RunRecord(BaseModel):
     quality_score: float = Field(ge=0, le=1)
     error_count: int = Field(ge=0)
     tool_call_count: int = Field(ge=0)
+    latency_ms: float = Field(default=0.0, ge=0)
+    estimated_cost_usd: float = Field(default=0.0, ge=0)
 
 
 class GateThresholds(BaseModel):
@@ -27,6 +29,8 @@ class GateThresholds(BaseModel):
     max_success_rate_drop: float = Field(default=0.0, ge=0, le=1)
     max_quality_drop: float = Field(default=0.02, ge=0, le=1)
     max_error_increase: float = Field(default=0.0, ge=0)
+    max_latency_increase_ms: float = Field(default=100.0, ge=0)
+    max_cost_increase_usd: float = Field(default=0.01, ge=0)
 
 
 class GateReport(BaseModel):
@@ -42,7 +46,13 @@ class GateReport(BaseModel):
 
 
 def record_from_result(
-    *, case_id: str, category: str, result: RunResult, quality_score: float
+    *,
+    case_id: str,
+    category: str,
+    result: RunResult,
+    quality_score: float,
+    latency_ms: float = 0.0,
+    estimated_cost_usd: float = 0.0,
 ) -> RunRecord:
     return RunRecord(
         case_id=case_id,
@@ -51,6 +61,8 @@ def record_from_result(
         quality_score=quality_score,
         error_count=len(result.errors),
         tool_call_count=result.tool_call_count,
+        latency_ms=latency_ms,
+        estimated_cost_usd=estimated_cost_usd,
     )
 
 
@@ -88,6 +100,10 @@ def paired_regression_gate(
         failures.append("quality_regression")
     if deltas["mean_errors"] > limits.max_error_increase:
         failures.append("error_rate_regression")
+    if deltas["mean_latency_ms"] > limits.max_latency_increase_ms:
+        failures.append("latency_regression")
+    if deltas["mean_cost_usd"] > limits.max_cost_increase_usd:
+        failures.append("cost_regression")
 
     grouped: dict[str, list[str]] = defaultdict(list)
     for case_id in ordered_ids:
@@ -125,4 +141,6 @@ def _summary(records: list[RunRecord]) -> dict[str, float]:
         "mean_quality": sum(record.quality_score for record in records) / total,
         "mean_errors": sum(record.error_count for record in records) / total,
         "mean_tool_calls": sum(record.tool_call_count for record in records) / total,
+        "mean_latency_ms": sum(record.latency_ms for record in records) / total,
+        "mean_cost_usd": sum(record.estimated_cost_usd for record in records) / total,
     }

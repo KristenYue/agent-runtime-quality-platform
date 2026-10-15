@@ -7,7 +7,16 @@ from agent_runtime_platform.evaluation import (
 )
 
 
-def record(case_id, category, succeeded=True, quality=0.9, errors=0, calls=1):
+def record(
+    case_id,
+    category,
+    succeeded=True,
+    quality=0.9,
+    errors=0,
+    calls=1,
+    latency_ms=50,
+    cost_usd=0.01,
+):
     return RunRecord(
         case_id=case_id,
         category=category,
@@ -15,6 +24,8 @@ def record(case_id, category, succeeded=True, quality=0.9, errors=0, calls=1):
         quality_score=quality,
         error_count=errors,
         tool_call_count=calls,
+        latency_ms=latency_ms,
+        estimated_cost_usd=cost_usd,
     )
 
 
@@ -58,3 +69,37 @@ def test_paired_gate_fails_on_success_quality_and_error_regressions():
 def test_paired_gate_rejects_unpaired_cases():
     with pytest.raises(ValueError, match="paired case mismatch"):
         paired_regression_gate([record("a", "search")], [record("b", "search")])
+
+
+def test_paired_gate_fails_on_latency_and_cost_regressions():
+    baseline = [record("a", "opinion", latency_ms=100, cost_usd=0.01)]
+    candidate = [record("a", "opinion", latency_ms=151, cost_usd=0.016)]
+
+    report = paired_regression_gate(
+        baseline,
+        candidate,
+        thresholds=GateThresholds(
+            max_latency_increase_ms=50,
+            max_cost_increase_usd=0.005,
+        ),
+    )
+
+    assert report.passed is False
+    assert set(report.failures) == {"latency_regression", "cost_regression"}
+    assert report.deltas["mean_latency_ms"] == 51
+    assert report.deltas["mean_cost_usd"] == pytest.approx(0.006)
+
+
+def test_paired_gate_reports_latency_and_cost_by_category():
+    baseline = [record("a", "standard", latency_ms=80, cost_usd=0.02)]
+    candidate = [record("a", "standard", latency_ms=90, cost_usd=0.018)]
+
+    report = paired_regression_gate(baseline, candidate)
+
+    assert report.passed is True
+    assert report.baseline["mean_latency_ms"] == 80
+    assert report.candidate["mean_cost_usd"] == pytest.approx(0.018)
+    assert report.category_deltas["standard"]["mean_latency_ms"] == 10
+    assert report.category_deltas["standard"]["mean_cost_usd"] == pytest.approx(
+        -0.002
+    )

@@ -572,3 +572,21 @@ ADR-0002 状态因此是 `Accepted for development; Production blocked`。下一
 日志中出现一次 setup-python 保存 pip cache 失败：两个并行 job 使用相同 cache key，其中一个已在创建缓存。该 post-job 提示没有改变 job conclusion，也不影响测试结果；它属于缓存优化竞争，不是构建或运行正确性失败。
 
 至此 P0 的远端、作者、普通回归和真实 PostgreSQL证据闭环。下一阶段按照路线进入默认关闭、正式结果隔离、失败不传播的 V2 shadow 边界；生产状态仍受 shadow、下游幂等与 rollback 演练阻断。
+
+## 57. P2a：paired gate 增加延迟与成本边界
+
+舆情 PR `#4` 的 shadow P1 已在真实 PostgreSQL 16 CI 中通过后，路线进入 P2。所有权审计确认：业务任务 JSONL 应由舆情仓库维护，Runtime 仓库只维护通用记录和成对门禁算法，避免基础平台反向拥有业务样本。
+
+原 `RunRecord` 只有成功、质量、错误和工具调用次数，不能满足路线中“同时保留延迟和成本边界”的要求。`0.6.0.dev0` 新增非负 `latency_ms` 与 `estimated_cost_usd`；旧调用不传时默认 0，保持已有 fixture 与 API 兼容。`GateThresholds` 新增允许的平均延迟绝对增量和平均估算成本绝对增量，超限分别产生 `latency_regression` 与 `cost_regression`。总览与按 category 的 delta 都包含这两个指标。
+
+这里选择绝对增量而不是百分比：baseline 为 0 或极小值时百分比不稳定，而版本化任务集会提供固定环境下的毫秒和美元估算口径。默认容忍 100 ms 和 0.01 USD 只是通用安全默认值；舆情业务门禁必须在 manifest 中显式锁定自己的阈值，不能依赖默认值。
+
+验证过程中遇到三个环境问题：
+
+1. 首次沿用舆情仓库命令调用 `.venv/Scripts/python.exe`，但 Runtime 仓库没有独立虚拟环境，PowerShell 在测试启动前即报解释器不存在。改为使用相邻舆情项目已验证的虚拟环境。
+2. 定向测试为 5 项通过，`pip check` 也通过，但随后普通 `python -c` import 因 `src/` layout 且未 editable install 而得到 `ModuleNotFoundError`。pytest 会根据项目配置加入 `src`，普通 Python 不会；复验时显式把仓库 `src` 加入 `sys.path`，版本、默认值和公共类型检查通过。
+3. 第一次完整测试在受限 Windows sandbox 中只输出两个 skip 标记后不返回，未形成有效结果。改在沙箱外使用项目内 `--basetemp` 重跑；为取得明确汇总，再用 `-o addopts=''` 覆盖项目的 quiet 选项。
+
+最终完整结果为 `54 passed, 2 skipped in 1.28s`。两项 skip 分别是需要相邻舆情项目路径的可选 adapter 集成，以及需要 `RUNTIME_DATABASE_URL` 的真实 PostgreSQL 集成；P0 已有远端真实 PostgreSQL 证据，本轮改动只涉及纯 evaluation 数据契约。`compileall`、`pip check`、TOML 版本与新字段默认值检查通过。
+
+清理时，挂起的 sandbox 测试仍由两个父子 Python 进程占用 `.pytest-tmp-p2a-full/.../backend.sqlite3`，第一次 `Remove-Item` 因文件占用未能删净。普通权限无法读取 CIM 命令行；提升为只读检查后确认 PID 27424/18524 的完整命令均是本轮 `pytest -q --basetemp .pytest-tmp-p2a-full`，并确认父子关系。只终止这两个已核实的测试进程后，按项目绝对路径边界删除残留目录；没有终止其他 Python 进程。

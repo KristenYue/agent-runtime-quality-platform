@@ -2,7 +2,7 @@
 
 这是从两个冻结项目之后继续建设的 V2 基线：把 provider-neutral Planning Loop、异步工具批次、预算、权限、SQLite checkpoint、人工暂停/恢复、统一 Trace 和成对回归门禁放进同一套小型平台。
 
-当前状态是 `0.5.2.dev0`，已加入 PostgreSQL backend、显式异步连接池生命周期、fenced state writes、保守崩溃恢复和舆情 Agent 薄适配器。GitHub Actions 的普通回归与真实 PostgreSQL 16 集成 job 均已通过，但仍不把单次 CI 结果表述为生产 SLA。
+当前状态是 `0.6.0.dev0`，已加入 PostgreSQL backend、显式异步连接池生命周期、fenced state writes、保守崩溃恢复和舆情 Agent 薄适配器。paired gate 同时比较成功率、质量、错误、工具调用、延迟与估算成本。GitHub Actions 的普通回归与真实 PostgreSQL 16 集成 job 均已通过，但仍不把单次 CI 结果表述为生产 SLA。
 
 ## 当前能力
 
