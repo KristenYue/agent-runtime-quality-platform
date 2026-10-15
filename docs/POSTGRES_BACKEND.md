@@ -44,7 +44,7 @@ python -m pytest tests/integration/test_postgres_runtime_backend.py -q
 
 测试会创建 `runtime_*` 表、运行一个最小任务，再让两套独立连接池并发争抢已释放 lease。它验证只有一个 winner、token 递增且旧 grant 无法写 checkpoint，最后删除测试数据；表本身保留。只应对专用测试数据库执行。
 
-仓库 `.github/workflows/ci.yml` 已配置独立的 `postgres-integration` job，使用 PostgreSQL 16 service 执行同一个测试并上传 JUnit 报告。由于当前 Runtime 仓库尚无初始 commit，本地只能验证工作流契约，不能把“已配置”写成“GitHub Actions 已通过”。
+仓库 `.github/workflows/ci.yml` 的独立 `postgres-integration` job 使用 PostgreSQL 16 service 执行同一个测试并上传 JUnit 报告。Actions run `38742915643` 已真实通过：`1 passed in 0.47s`。该证据覆盖 migration、连接池和 lease takeover，不覆盖生产负载或外部模型供应商。
 
 ## 已知阻断项
 

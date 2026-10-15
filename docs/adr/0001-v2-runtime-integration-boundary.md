@@ -78,5 +78,5 @@ SQLite 实现适合验证状态机语义和单机故障注入，但不能提供�
 - 2026-10-15：已完成独立 PostgreSQL backend、显式连接池、幂等上下文、fencing token 和 stale-write 拒绝；
 - 已编写真实 PostgreSQL 双连接池竞争测试，但当前主机无专用 DSN，尚未取得通过证据；
 - 2026-10-15：Runtime 已建立公开远端并触发首次 CI；PostgreSQL 16 service job 真实通过 migration、连接池和双 owner 接管；
-- 首次完整 run 因 unit job 的 fake-pool 测试仍隐式依赖可选 `psycopg` 而失败，已修复测试隔离，等待复跑；
-- 待完成：完整 CI 绿色证据、shadow runner、默认关闭/回滚开关、版本化任务集和组合门禁。
+- 首次完整 run 因 unit job 的 fake-pool 测试仍隐式依赖可选 `psycopg` 而失败；修复测试隔离后，run `38742915643` 的 unit 与 PostgreSQL job 均通过；
+- 待完成：shadow runner、默认关闭/回滚开关、版本化任务集和组合门禁。

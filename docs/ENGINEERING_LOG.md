@@ -560,3 +560,15 @@ ADR-0002 状态因此是 `Accepted for development; Production blocked`。下一
 修复：单测同时 mock `_load_psycopg` 并提供唯一 `fake_dict_row`，再断言它确实进入 pool 的 `row_factory`。这样 unit job 可以验证连接池编排而不要求安装 PostgreSQL extra；真实 extra 继续由独立集成 job 验证。版本更新为 `0.5.2.dev0`，等待复验后 push。
 
 本地复验结果：定向 CI/PostgreSQL contract 为 `14 passed in 0.19s`；完整套件为 `53 passed, 1 skipped, 2 warnings in 15.81s`。skip 仍是本机未设置真实 PostgreSQL DSN；真实 PostgreSQL 证据来自上述已通过的远端 job。两条 warning 仍为既有 LangGraph/jieba 依赖提示。
+
+## 56. 第二次 CI 全绿，P0 闭环
+
+维护者 push 修复提交后，远端 `origin/main` 与本地 SHA 一致，shortlog 仍只有 `KristenYue` 一个作者。Actions run `38742915643` 结果：
+
+- `unit-and-contract`：`52 passed, 2 deselected in 0.96s`；
+- `postgres-integration`：`1 passed in 0.47s`；
+- 两个 job 均上传 JUnit，run conclusion 为 `success`。
+
+日志中出现一次 setup-python 保存 pip cache 失败：两个并行 job 使用相同 cache key，其中一个已在创建缓存。该 post-job 提示没有改变 job conclusion，也不影响测试结果；它属于缓存优化竞争，不是构建或运行正确性失败。
+
+至此 P0 的远端、作者、普通回归和真实 PostgreSQL证据闭环。下一阶段按照路线进入默认关闭、正式结果隔离、失败不传播的 V2 shadow 边界；生产状态仍受 shadow、下游幂等与 rollback 演练阻断。
