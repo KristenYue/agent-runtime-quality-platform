@@ -545,3 +545,18 @@ ADR-0002 状态因此是 `Accepted for development; Production blocked`。下一
 初始提交成功创建，主题为 `Build agent runtime quality platform v0.5.1`。提交后用 Git metadata 和 `git shortlog -sne --all` 双重核对：Author、Committer 和唯一作者均为 `KristenYue <yueyt1112@163.com>`，没有 `Co-authored-by`。
 
 远端仍未建立：`git remote -v` 为空；GitHub CLI 检测到 `KristenYue` 账号配置，但 token 已失效。为避免替维护者创建公开/私有仓库或变更账号认证，本阶段不自动处理远端。维护者重新登录并决定仓库可见性后，再添加 `origin` 和 push，届时才能取得真实 Actions 结果。
+
+## 55. 远端上传与首次真实 PostgreSQL CI
+
+维护者创建公开仓库 `KristenYue/agent-runtime-quality-platform` 并 push。只读核验确认本地 `main`、`origin/main` 与远端 ref 均为同一提交，shortlog 仍只有维护者一个作者。
+
+首次 Actions run `38742299975` 总体失败，但必须拆分证据：
+
+- `postgres-integration` job 全部步骤成功，真实运行了 PostgreSQL 16 service、migration、两套连接池、并发 lease 接管、token 递增和 stale checkpoint 拒绝；
+- `unit-and-contract` 为 `51 passed, 2 deselected, 1 failed`；失败发生在 fake-pool 生命周期单测。
+
+根因不是 backend 或 PostgreSQL：测试 mock 了 `_load_psycopg_pool`，但 `backend.open()` 仍调用 `_load_psycopg()` 取得 `dict_row`。本机环境此前安装过 psycopg，掩盖了这条隐式可选依赖；干净 CI 的 `.[dev]` 环境没有 psycopg，因此正确失败。
+
+修复：单测同时 mock `_load_psycopg` 并提供唯一 `fake_dict_row`，再断言它确实进入 pool 的 `row_factory`。这样 unit job 可以验证连接池编排而不要求安装 PostgreSQL extra；真实 extra 继续由独立集成 job 验证。版本更新为 `0.5.2.dev0`，等待复验后 push。
+
+本地复验结果：定向 CI/PostgreSQL contract 为 `14 passed in 0.19s`；完整套件为 `53 passed, 1 skipped, 2 warnings in 15.81s`。skip 仍是本机未设置真实 PostgreSQL DSN；真实 PostgreSQL 证据来自上述已通过的远端 job。两条 warning 仍为既有 LangGraph/jieba 依赖提示。

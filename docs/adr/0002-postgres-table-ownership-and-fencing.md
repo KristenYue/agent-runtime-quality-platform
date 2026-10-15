@@ -37,9 +37,9 @@ Runtime migration 不得 ALTER、DELETE 或复用舆情 V2 表。未来若两套
 
 仍处于 `Production blocked`，直到：
 
-1. 两 worker 接管竞争的真实 PostgreSQL 测试通过；
+1. 真实 PostgreSQL 双 owner 接管测试已在 CI run `38742299975` 通过；
 2. 下游副作用接口验证 token 或至少验证幂等键；
-3. PostgreSQL 连接池已实现，但仍需在真实数据库完成资源回收、超时、migration 与 rollback 演练；
+3. PostgreSQL 连接池打开/借还/关闭和 migration 已在真实 CI 通过；仍需超时与 rollback 演练；
 4. V2 shadow 模式有显式开关和回滚路径。
 
 写入 fencing 不单独比较本地墙钟过期时间：若没有接管，owner+token 仍代表同一代际；真实接管会原子递增 token。这样避免极短 TTL 下调度抖动造成假 stale write，同时仍拒绝被新代际替换的旧 worker。

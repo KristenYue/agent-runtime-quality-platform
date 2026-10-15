@@ -2,7 +2,7 @@
 
 这是从两个冻结项目之后继续建设的 V2 基线：把 provider-neutral Planning Loop、异步工具批次、预算、权限、SQLite checkpoint、人工暂停/恢复、统一 Trace 和成对回归门禁放进同一套小型平台。
 
-当前状态是 `0.5.1.dev0`，已加入 PostgreSQL backend、显式异步连接池生命周期、fenced state writes、保守崩溃恢复和舆情 Agent 薄适配器；CI 已配置真实 PostgreSQL service 门禁，但在仓库实际运行成功前不声称已经达到生产 SLA。
+当前状态是 `0.5.2.dev0`，已加入 PostgreSQL backend、显式异步连接池生命周期、fenced state writes、保守崩溃恢复和舆情 Agent 薄适配器。首次远端 PostgreSQL service job 已真实通过；完整 CI 仍需在可选依赖隔离修复后复验，不声称已经达到生产 SLA。
 
 ## 当前能力
 

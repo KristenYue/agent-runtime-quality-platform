@@ -99,6 +99,7 @@ def test_postgres_backend_rejects_invalid_pool_configuration(options, message):
 
 def test_postgres_backend_explicit_pool_lifecycle(monkeypatch):
     created = []
+    fake_dict_row = object()
 
     class FakePool:
         def __init__(self, conninfo, **kwargs):
@@ -119,6 +120,11 @@ def test_postgres_backend_explicit_pool_lifecycle(monkeypatch):
             self.acquire_calls += 1
             return FakeConnection(FakeCursor(row=None))
 
+    monkeypatch.setattr(
+        postgres_module,
+        "_load_psycopg",
+        lambda: (object(), fake_dict_row),
+    )
     monkeypatch.setattr(postgres_module, "_load_psycopg_pool", lambda: FakePool)
     backend = PostgresRuntimeBackend(
         "postgresql://example.invalid/runtime",
@@ -140,6 +146,7 @@ def test_postgres_backend_explicit_pool_lifecycle(monkeypatch):
     assert pool.kwargs["max_size"] == 5
     assert pool.kwargs["timeout"] == 7
     assert pool.kwargs["open"] is False
+    assert pool.kwargs["kwargs"]["row_factory"] is fake_dict_row
     assert pool.open_calls == [(True, 7)]
     assert pool.acquire_calls == 1
     assert pool.close_calls == 1
