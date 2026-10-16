@@ -590,3 +590,11 @@ ADR-0002 状态因此是 `Accepted for development; Production blocked`。下一
 最终完整结果为 `54 passed, 2 skipped in 1.28s`。两项 skip 分别是需要相邻舆情项目路径的可选 adapter 集成，以及需要 `RUNTIME_DATABASE_URL` 的真实 PostgreSQL 集成；P0 已有远端真实 PostgreSQL 证据，本轮改动只涉及纯 evaluation 数据契约。`compileall`、`pip check`、TOML 版本与新字段默认值检查通过。
 
 清理时，挂起的 sandbox 测试仍由两个父子 Python 进程占用 `.pytest-tmp-p2a-full/.../backend.sqlite3`，第一次 `Remove-Item` 因文件占用未能删净。普通权限无法读取 CIM 命令行；提升为只读检查后确认 PID 27424/18524 的完整命令均是本轮 `pytest -q --basetemp .pytest-tmp-p2a-full`，并确认父子关系。只终止这两个已核实的测试进程后，按项目绝对路径边界删除残留目录；没有终止其他 Python 进程。
+
+## 58. P2 跨仓库组合门禁完成
+
+舆情仓库负责的 `runtime-opinion-v1` 已固化 60 条公开合成任务，六类各 10 条，并生成 baseline/candidate 成对记录。业务 manifest 显式锁定成功率、质量、错误、延迟和成本阈值；主项目通过固定提交安装本 Runtime `0.6.0.dev0`，调用这里的 `paired_regression_gate`，而不是复制算法。
+
+首轮组合 run `38770944930` 的 PostgreSQL/Redis job 绿色，但普通回归因 Windows CRLF 与 Ubuntu LF 产生不同原始文本 SHA 而失败。该问题属于业务 fixture 证据封装，不修改 Runtime 门禁算法；舆情仓库改为 `sha256_utf8_lf_normalized`，并增加 LF/CRLF 等价测试。旧红色 run 被保留，没有重写或删除。
+
+修复提交 `b4bf093f88597805f0fb4cf8d8ab2a7e56394927` 对应的舆情 Actions run `38842124404` 全绿：普通 job 为 `170 passed, 2 deselected`，60 对 Runtime gate、RAG、安全、release-readiness 和 wheel 均通过；真实 PostgreSQL/Redis integration 为 `2 passed in 0.63s`。这证明通用 paired gate 已被业务仓库以固定版本接入。报告仍明确标记为合成契约校准，不是生产质量、成本或延迟 SLA。

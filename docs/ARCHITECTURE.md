@@ -78,17 +78,22 @@ Planner.decide(request, observations, step)
 - 成功率；
 - 平均质量分；
 - 平均错误数；
-- 平均工具调用数（观察指标，当前不阻断）。
+- 平均工具调用数（观察指标，当前不阻断）；
+- 平均延迟绝对增量；
+- 平均估算成本绝对增量。
 
-“成对”很重要：如果两边样本不同，指标变化无法归因于代码版本，因此直接拒绝评测。
+“成对”很重要：如果两边样本不同，指标变化无法归因于代码版本，因此直接拒绝评测。成功率、质量、错误、延迟和成本可以阻断发布；总览与每个 category 都保留相同指标。业务仓库必须在自己的版本化 manifest 中锁定阈值，不能把平台默认值解释为业务 SLA。
 
-## 8. 下一阶段
+## 8. 当前集成状态与下一阶段
 
-1. 把幂等键透传给外部工具，并加入 fencing token；
-2. 接入 OpenTelemetry 或兼容导出器；
-3. 将评测数据固化为版本化 JSONL；
-4. 把薄 adapter 接入舆情项目的 V2 JobExecutor 灰度路径；
-5. 增加持久化审批主体、RBAC 与审计事件。
+幂等上下文、fencing token、PostgreSQL backend、版本化舆情 JSONL 和默认关闭的 V2 shadow Worker 已完成；舆情 PR `#4` 的组合 CI 已通过 60 对 baseline/candidate 门禁。业务任务和报告由舆情仓库维护，本仓库只维护通用 Runtime contracts 与 paired gate，避免平台反向拥有业务数据。
+
+下一阶段不继续增加 Runtime 抽象，优先完成：
+
+1. Trace、暂停、恢复和失败原因查看页；
+2. OpenTelemetry 或兼容导出器；
+3. 持久化审批主体、RBAC 与审计事件；
+4. 将合成校准报告逐步补充为真实 shadow 观测，但不把它包装成生产 SLA。
 
 ## 9. 0.2 租约与保守恢复
 
