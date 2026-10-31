@@ -44,4 +44,12 @@ adapter 不复制舆情项目代码，通过 `graph_provider().invoke(state)` �
 
 生产 V2 集成边界见 `docs/adr/0001-v2-runtime-integration-boundary.md`。
 
+## 简历指标可执行基准
+
+`python scripts/run_resume_target_live.py` 会真实执行 180 条 Runtime 功能任务、70 次故障
+注入和 60 组重复提交，而不是读取预填结果。当前门禁要求至少 173/180 通过、68/70
+恢复且额外最终写入为 0；逐 case Trace 保存在机器可读报告中。该基准覆盖 Runtime、
+checkpoint、恢复、审批、白名单和业务唯一键，但仍是本地确定性合成测试，不冒充生产
+PostgreSQL/Redis 故障演练或端到端 exactly-once 保证。
+
 设计、来源边界和完整开发过程见 `docs/ARCHITECTURE.md`、`docs/SOURCE_BOUNDARY.md` 与 `docs/ENGINEERING_LOG.md`。

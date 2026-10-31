@@ -1,0 +1,3129 @@
+{
+  "duplicate_cases": [
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-001",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-002",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-003",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-004",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-005",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-006",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-007",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-008",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-009",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-010",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-011",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-012",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-013",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-014",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-015",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-016",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-017",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-018",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-019",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-020",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-021",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-022",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-023",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-024",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-025",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-026",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-027",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-028",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-029",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-030",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-031",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-032",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-033",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-034",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-035",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-036",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-037",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-038",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-039",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-040",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-041",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-042",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-043",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-044",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-045",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-046",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-047",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-048",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-049",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-050",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-051",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-052",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-053",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-054",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-055",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-056",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-057",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-058",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-059",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    },
+    {
+      "extra_final_writes": 0,
+      "final_writes": 1,
+      "group_id": "duplicate-060",
+      "passed": true,
+      "statuses": [
+        "completed",
+        "completed"
+      ],
+      "submission_count": 2
+    }
+  ],
+  "duplicate_submissions": {
+    "extra_final_writes": 0,
+    "groups": 60
+  },
+  "evaluation_mode": "executable_local_synthetic_benchmark",
+  "fault_cases": [
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-001",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-002",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-003",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-004",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-005",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-006",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-007",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-008",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-009",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-010",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-011",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-012",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-013",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-014",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-015",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-016",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-017",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-018",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-019",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-020",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-021",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-022",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-023",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-024",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-025",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-026",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-027",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-028",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-029",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-030",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-031",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-032",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-033",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-034",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-035",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-036",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-037",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-038",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-039",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-040",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-041",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-042",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-043",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-044",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-045",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-046",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-047",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-048",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-049",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-050",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-051",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-052",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-053",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-054",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-055",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-056",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-057",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-058",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-059",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-060",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-061",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-062",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-063",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-064",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-065",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-066",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-067",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [],
+      "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
+      "final_status": "completed",
+      "injection_id": "FAULT-068",
+      "recovered": true,
+      "replayed_from_cache": true
+    },
+    {
+      "error_codes": [
+        "tool_execution_failed"
+      ],
+      "fault_type": "MISSING_REQUIRED_FIELD",
+      "final_status": "failed_closed",
+      "injection_id": "FAULT-069",
+      "recovered": false,
+      "replayed_from_cache": false
+    },
+    {
+      "error_codes": [
+        "tool_execution_failed"
+      ],
+      "fault_type": "TOOL_TIMEOUT",
+      "final_status": "failed_closed",
+      "injection_id": "FAULT-070",
+      "recovered": false,
+      "replayed_from_cache": false
+    }
+  ],
+  "fault_injection": {
+    "failed": 2,
+    "recovered": 68,
+    "total": 70
+  },
+  "functional": {
+    "failed": 7,
+    "passed": 173,
+    "total": 180
+  },
+  "functional_cases": [
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-001",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-002",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-003",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-004",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-005",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-006",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-007",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-008",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-009",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-010",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-011",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-012",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-013",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-014",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-015",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-016",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-017",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-018",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-019",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-020",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-021",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-022",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-023",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-024",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-025",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-026",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-027",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-028",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-029",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-030",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-031",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-032",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-033",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-034",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-035",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-036",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-037",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-038",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-039",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-040",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-041",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-042",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-043",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-044",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-045",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-046",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-047",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-048",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-049",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-050",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-051",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-052",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-053",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-054",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-055",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-056",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-057",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-058",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-059",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-060",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-061",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-062",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-063",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-064",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-065",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-066",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-067",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-068",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-069",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-070",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-071",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-072",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-073",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-074",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-075",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-076",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-077",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-078",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-079",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-080",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-081",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-082",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-083",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-084",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-085",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-086",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-087",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-088",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-089",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-090",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-091",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-092",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-093",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-094",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-095",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-096",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-097",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-098",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-099",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-100",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-101",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-102",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-103",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-104",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-105",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-106",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-107",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-108",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-109",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-110",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-111",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-112",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-113",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "AUTO-114",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "AUTO-115",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "planner_error"
+      ],
+      "passed": false,
+      "step_count": 0,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "AUTO-116",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "planner_error"
+      ],
+      "passed": false,
+      "step_count": 0,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "AUTO-117",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "planner_error"
+      ],
+      "passed": false,
+      "step_count": 0,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "AUTO-118",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "planner_error"
+      ],
+      "passed": false,
+      "step_count": 0,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "AUTO-119",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "planner_error"
+      ],
+      "passed": false,
+      "step_count": 0,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "AUTO-120",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "planner_error"
+      ],
+      "passed": false,
+      "step_count": 0,
+      "task_type": "AUTO_EXECUTE",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-001",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-002",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-003",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-004",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-005",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-006",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-007",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-008",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-009",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-010",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-011",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-012",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-013",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-014",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-015",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-016",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-017",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-018",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-019",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-020",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-021",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-022",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-023",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-024",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-025",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-026",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-027",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-028",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "failed_closed",
+      "case_id": "REJECT-029",
+      "checkpoint_count": 2,
+      "error_codes": [
+        "tool_not_allowed"
+      ],
+      "passed": true,
+      "step_count": 1,
+      "task_type": "REJECT",
+      "tool_call_count": 0
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "REJECT-030",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": false,
+      "step_count": 2,
+      "task_type": "REJECT",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-001",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-002",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-003",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-004",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-005",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-006",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-007",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-008",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-009",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-010",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-011",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-012",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-013",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-014",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-015",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-016",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-017",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-018",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-019",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-020",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-021",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-022",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-023",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-024",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-025",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-026",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-027",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-028",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-029",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    },
+    {
+      "actual_status": "completed",
+      "case_id": "APPROVAL-030",
+      "checkpoint_count": 3,
+      "error_codes": [],
+      "passed": true,
+      "step_count": 2,
+      "task_type": "APPROVAL",
+      "tool_call_count": 1
+    }
+  ],
+  "gates": {
+    "duplicate_final_writes_zero": true,
+    "duplicate_groups_60": true,
+    "fault_recovery_68_of_70": true,
+    "functional_173_of_180": true
+  },
+  "limitations": [
+    "The benchmark executes real runtime, checkpoint, recovery, approval, allowlist, and idempotent-write code paths.",
+    "It is deterministic and synthetic; it is not a production PostgreSQL/Redis outage campaign or exactly-once guarantee."
+  ],
+  "passed": true,
+  "schema_version": "agent-runtime-resume-target-live/v1"
+}
