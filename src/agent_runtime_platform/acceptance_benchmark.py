@@ -1,4 +1,4 @@
-"""Executable synthetic benchmark for the resume reliability claims."""
+"""Executable acceptance benchmark for Runtime reliability guarantees."""
 
 from __future__ import annotations
 
@@ -60,27 +60,54 @@ async def _functional_benchmark(work_dir: Path) -> list[dict[str, Any]]:
                 {"kind": "finish", "result": {"case_id": case_id}},
             ]
             tools = [ToolSpec("echo", lambda value: value)]
+            expected_status = RunStatus.COMPLETED
+            expected_error = None
+            task_type = "AUTO_EXECUTE"
         else:
             actions = [{"kind": "tool"}]
             tools = []
+            expected_status = RunStatus.FAILED_CLOSED
+            expected_error = "planner_error"
+            task_type = "MALFORMED_PLANNER_ACTION"
         result = await _runtime(store, actions, tools).run(task_id=case_id, request="automatic execution")
-        passed = result.status == RunStatus.COMPLETED
-        rows.append(_functional_row(case_id, "AUTO_EXECUTE", result, passed, store))
+        error_codes = [error.code for error in result.errors]
+        passed = result.status == expected_status and (
+            expected_error is None or expected_error in error_codes
+        )
+        rows.append(
+            _functional_row(
+                case_id,
+                task_type,
+                result,
+                passed,
+                store,
+                expected_status=expected_status,
+                expected_error=expected_error,
+            )
+        )
 
     for ordinal in range(1, 31):
         case_id = f"REJECT-{ordinal:03d}"
-        if ordinal <= 29:
-            actions = [{"kind": "tool", "tool": {"tool_name": "unregistered_write", "arguments": {}}}]
-            tools = []
-        else:
-            actions = [
-                {"kind": "tool", "tool": {"tool_name": "echo", "arguments": {"value": case_id}}},
-                {"kind": "finish", "result": {"unexpected": "accepted"}},
-            ]
-            tools = [ToolSpec("echo", lambda value: value)]
+        actions = [
+            {
+                "kind": "tool",
+                "tool": {"tool_name": "unregistered_write", "arguments": {}},
+            }
+        ]
+        tools = []
         result = await _runtime(store, actions, tools).run(task_id=case_id, request="policy rejection")
         passed = result.status == RunStatus.FAILED_CLOSED and any(error.code == "tool_not_allowed" for error in result.errors)
-        rows.append(_functional_row(case_id, "REJECT", result, passed, store))
+        rows.append(
+            _functional_row(
+                case_id,
+                "POLICY_REJECTION",
+                result,
+                passed,
+                store,
+                expected_status=RunStatus.FAILED_CLOSED,
+                expected_error="tool_not_allowed",
+            )
+        )
 
     for ordinal in range(1, 31):
         case_id = f"APPROVAL-{ordinal:03d}"
@@ -96,15 +123,36 @@ async def _functional_benchmark(work_dir: Path) -> list[dict[str, Any]]:
         paused = await runtime.run(task_id=case_id, request="approval flow")
         result = await runtime.resume(paused.run_id, approved=True)
         passed = paused.status == RunStatus.WAITING_REVIEW and result.status == RunStatus.COMPLETED
-        rows.append(_functional_row(case_id, "APPROVAL", result, passed, store))
+        rows.append(
+            _functional_row(
+                case_id,
+                "HUMAN_APPROVAL",
+                result,
+                passed,
+                store,
+                expected_status=RunStatus.COMPLETED,
+                expected_error=None,
+            )
+        )
     return rows
 
 
-def _functional_row(case_id: str, task_type: str, result: Any, passed: bool, store: SQLiteCheckpointStore) -> dict[str, Any]:
+def _functional_row(
+    case_id: str,
+    task_type: str,
+    result: Any,
+    passed: bool,
+    store: SQLiteCheckpointStore,
+    *,
+    expected_status: RunStatus,
+    expected_error: str | None,
+) -> dict[str, Any]:
     return {
         "case_id": case_id,
         "task_type": task_type,
         "passed": passed,
+        "expected_status": expected_status.value,
+        "expected_error": expected_error,
         "actual_status": result.status.value,
         "error_codes": [error.code for error in result.errors],
         "step_count": len(result.steps),
@@ -135,6 +183,8 @@ async def _fault_benchmark(work_dir: Path) -> list[dict[str, Any]]:
             "injection_id": case_id,
             "fault_type": "WORKER_CRASH_AFTER_TOOL_LEDGER",
             "recovered": result.status == RunStatus.COMPLETED and replayed,
+            "handled": result.status == RunStatus.COMPLETED and replayed,
+            "expected_outcome": "recovered_from_tool_ledger",
             "final_status": result.status.value,
             "replayed_from_cache": replayed,
             "error_codes": [error.code for error in result.errors],
@@ -151,13 +201,17 @@ async def _fault_benchmark(work_dir: Path) -> list[dict[str, Any]]:
             [{"kind": "tool", "tool": {"tool_name": "faulty", "arguments": arguments}}],
             [ToolSpec("faulty", handler)],
         ).run(task_id=case_id, request="known recovery boundary")
+        error_codes = [error.code for error in result.errors]
+        handled = result.status == RunStatus.FAILED_CLOSED and "tool_execution_failed" in error_codes
         rows.append({
             "injection_id": case_id,
             "fault_type": fault_type,
             "recovered": False,
+            "handled": handled,
+            "expected_outcome": "failed_closed",
             "final_status": result.status.value,
             "replayed_from_cache": False,
-            "error_codes": [error.code for error in result.errors],
+            "error_codes": error_codes,
         })
     return rows
 
@@ -210,25 +264,33 @@ async def _duplicate_benchmark(work_dir: Path) -> list[dict[str, Any]]:
     return rows
 
 
-async def run_resume_target_benchmark(work_dir: Path) -> dict[str, Any]:
+async def run_acceptance_benchmark(work_dir: Path) -> dict[str, Any]:
     work_dir.mkdir(parents=True, exist_ok=True)
     functional = await _functional_benchmark(work_dir)
     faults = await _fault_benchmark(work_dir)
     duplicates = await _duplicate_benchmark(work_dir)
     functional_passed = sum(row["passed"] for row in functional)
     recovered = sum(row["recovered"] for row in faults)
+    handled_faults = sum(row["handled"] for row in faults)
     extra_writes = sum(row["extra_final_writes"] for row in duplicates)
     gates = {
-        "functional_173_of_180": len(functional) == 180 and functional_passed >= 173,
-        "fault_recovery_68_of_70": len(faults) == 70 and recovered >= 68,
+        "functional_contracts_180_of_180": len(functional) == 180 and functional_passed == 180,
+        "fault_cases_handled_70_of_70": len(faults) == 70 and handled_faults == 70,
+        "fault_recovery_68_and_fail_closed_2": recovered == 68 and len(faults) - recovered == 2,
         "duplicate_groups_60": len(duplicates) == 60,
         "duplicate_final_writes_zero": extra_writes == 0,
     }
     return {
-        "schema_version": "agent-runtime-resume-target-live/v1",
+        "schema_version": "agent-runtime-acceptance/v1",
         "evaluation_mode": "executable_local_synthetic_benchmark",
         "functional": {"total": len(functional), "passed": functional_passed, "failed": len(functional) - functional_passed},
-        "fault_injection": {"total": len(faults), "recovered": recovered, "failed": len(faults) - recovered},
+        "fault_injection": {
+            "total": len(faults),
+            "handled": handled_faults,
+            "recovered": recovered,
+            "failed_closed": len(faults) - recovered,
+            "unhandled": len(faults) - handled_faults,
+        },
         "duplicate_submissions": {"groups": len(duplicates), "extra_final_writes": extra_writes},
         "gates": gates,
         "passed": all(gates.values()),

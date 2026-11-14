@@ -598,3 +598,11 @@ ADR-0002 状态因此是 `Accepted for development; Production blocked`。下一
 首轮组合 run `38770944930` 的 PostgreSQL/Redis job 绿色，但普通回归因 Windows CRLF 与 Ubuntu LF 产生不同原始文本 SHA 而失败。该问题属于业务 fixture 证据封装，不修改 Runtime 门禁算法；舆情仓库改为 `sha256_utf8_lf_normalized`，并增加 LF/CRLF 等价测试。旧红色 run 被保留，没有重写或删除。
 
 修复提交 `b4bf093f88597805f0fb4cf8d8ab2a7e56394927` 对应的舆情 Actions run `38842124404` 全绿：普通 job 为 `170 passed, 2 deselected`，60 对 Runtime gate、RAG、安全、release-readiness 和 wheel 均通过；真实 PostgreSQL/Redis integration 为 `2 passed in 0.63s`。这证明通用 paired gate 已被业务仓库以固定版本接入。报告仍明确标记为合成契约校准，不是生产质量、成本或延迟 SLA。
+
+## 59. 通用验收基准与通信场景交付边界（2026-11-15）
+
+将带求职目标命名的 `resume_target_benchmark` 重构为产品语义明确的 `acceptance_benchmark`。执行内容没有靠预填数字：180 条功能契约真实经过 Runtime，70 条故障场景真实覆盖工具账本恢复和失败关闭，60 组重复提交真实落入带业务唯一键的 SQLite 表。逐 case 状态、错误码、checkpoint 数量和幂等写入结果写入 `data/evaluation/acceptance_v1/report.json`。
+
+CI 将普通单元测试、真实 PostgreSQL 集成和验收基准拆为三个 job，避免长基准拖慢快速反馈，也避免用 SQLite 验收替代 PostgreSQL lease/fencing 证据。版本更新为 `0.6.1.dev0`。
+
+原计划的最后一个业务场景确定为通信网络故障诊断 Agent。Runtime 保持领域无关，不在本仓库复制通信代码；通信仓库以固定提交依赖 Runtime，负责 FastAPI、Redis 异步任务、领域工具和诊断评测。本阶段本地验证为 `54 passed, 3 deselected`，验收结果为功能 `180/180`、故障处置 `70/70`、60 组重复提交额外最终写入 `0`。

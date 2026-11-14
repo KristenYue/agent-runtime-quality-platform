@@ -1,55 +1,91 @@
 # Agent Runtime & Evaluation Platform
 
-这是从两个冻结项目之后继续建设的 V2 基线：把 provider-neutral Planning Loop、异步工具批次、预算、权限、SQLite checkpoint、人工暂停/恢复、统一 Trace 和成对回归门禁放进同一套小型平台。
+[![CI](https://github.com/KristenYue/agent-runtime-quality-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/KristenYue/agent-runtime-quality-platform/actions/workflows/ci.yml)
 
-当前状态是 `0.6.0.dev0`，已加入 PostgreSQL backend、显式异步连接池生命周期、fenced state writes、保守崩溃恢复和舆情 Agent 薄适配器。paired gate 同时比较成功率、质量、错误、工具调用、延迟与估算成本。GitHub Actions 的普通回归与真实 PostgreSQL 16 集成 job 均已通过，但仍不把单次 CI 结果表述为生产 SLA。
+> 面向工具型 Agent 的可恢复执行内核与质量门禁：把“任务完成”拆成可检查的状态、工具调用、审批、错误、延迟和成本证据。
 
-## 当前能力
+## Engineering snapshot
 
-- 同步或异步工具统一注册；
-- 独立工具批次使用 `asyncio.gather` 并发执行；
-- 工具白名单、步骤/调用次数双预算和危险工具审批；
-- 每一步保存 SQLite checkpoint 与 SHA-256；
-- `pause_for_review` / `resume`；
-- Run、Step、ToolCall、Error 统一数据结构；
-- baseline/candidate 成对回归门禁；
-- 不依赖具体模型供应商的 Planner Protocol。
-- 带心跳的单 run 执行租约与确定性幂等键；
-- 已完成结果从本地账本恢复，不重复调用工具；
-- 不确定的非 replay-safe 写入/计算拒绝自动重放；
-- 舆情 Agent LangGraph 输入/输出契约适配器。
-- 可选 `ToolExecutionContext` 将幂等键、run/step/index 和 lease owner 交给外部工具；
-- ADR 明确禁止把 SQLite lease 直接嵌套进现有 PostgreSQL V2 执行路径。
-- `RuntimeBackend` 是异步协议；现有 SQLite 通过 `AsyncSQLiteBackend` 在线程中执行，不阻塞事件循环。
-- `PostgresRuntimeBackend` 使用独立 `runtime_*` 表，并支持 `async with backend` 管理连接池；当前真实数据库测试仍需 `RUNTIME_DATABASE_URL`。
-- LeaseGrant 同时保护 checkpoint/tool-result 写入并进入工具上下文；真实 PostgreSQL 双 worker 验证仍是生产阻断项。
+| 验收维度 | 可执行结果 | 代码证据 |
+|---|---:|---|
+| 功能契约 | **180 / 180** | 自动执行、畸形动作失败关闭、策略拒绝、人工审批四类 Runtime 路径 |
+| 故障处置 | **70 / 70** | 68 个恢复；2 个不安全边界按设计失败关闭；未处置 0 |
+| 重复提交 | **60 组，额外最终写入 0** | 业务唯一键 + Runtime 幂等结果账本 |
+| 数据库并发 | PostgreSQL 双 Worker 接管通过 | lease、heartbeat、单调 fencing token、陈旧写入拒绝 |
 
-## 快速验证
+逐 case 的预期状态、实际状态、错误码和 Trace 位于 [`data/evaluation/acceptance_v1/report.json`](data/evaluation/acceptance_v1/report.json)。报告明确区分“成功恢复”和“为避免不确定副作用而安全失败关闭”，避免把异常路径隐藏在总通过率中。
 
-```powershell
-python -m pip install -e ".[dev]"
-python -m pytest -q --basetemp .pytest-tmp
+## What is implemented
+
+```mermaid
+flowchart LR
+    A[Planner action] --> B{Policy & budget}
+    B -->|blocked| C[failed_closed]
+    B -->|dangerous| D[waiting_review]
+    D -->|approved| E[Tool batch]
+    B -->|allowed| E
+    E --> F[Idempotency ledger]
+    F --> G[Checkpoint + SHA-256]
+    G --> H{Finish or recover}
+    H -->|crash| I[Lease takeover + fencing]
+    I --> F
+    H -->|complete| J[Unified Trace]
 ```
 
-GitHub Actions 将普通单元/契约测试与真实 PostgreSQL 集成测试拆成两个 job。后者安装 `.[dev,postgres]`，启动 PostgreSQL 16，执行 migration、连接池生命周期和双 worker lease 接管测试，并上传 JUnit 报告。工作流文件存在不等于远端已经通过；必须以实际 Actions run 为准。
+- provider-neutral Planner Protocol 与同步/异步工具注册；
+- `asyncio.gather` 独立工具并发、步骤预算和工具调用预算；
+- 工具白名单、危险操作人工审批、`pause_for_review` / `resume`；
+- Run / Step / ToolCall / Error 统一 Trace；
+- SQLite checkpoint、完整性哈希、执行租约、heartbeat 与确定性幂等键；
+- 独立 `runtime_*` PostgreSQL 表、连接池生命周期与 fenced state writes；
+- baseline/candidate 成对回归门禁，联合检查成功率、质量、错误、延迟与估算成本；
+- 舆情 LangGraph 的薄契约适配器，不复制业务项目代码。
 
-运行真实舆情 LangGraph 的可选跨仓库测试：
+## Reference business integration
+
+[通信网络故障诊断 Agent](https://github.com/KristenYue/telecom-network-incident-agent) 是当前 Runtime 的端到端业务适配：通信仓库负责 FastAPI、Redis Worker、领域工具、根因排序与工单草稿；本仓库负责 checkpoint、lease、fencing token、人工审批、幂等结果账本和统一 Trace。业务仓库通过固定提交依赖 Runtime，避免复制执行内核，也让平台升级能够由领域评测独立验收。
+
+## Findings → fixes → regression evidence
+
+| 发现的问题 | 根因 | 工程处理 | 防回归证据 |
+|---|---|---|---|
+| 只有工具预算时，Planner 仍可无限循环 | 无工具步骤不消耗调用预算 | 增加独立 step budget | `step_budget_exceeded` 回归用例 |
+| Worker 失租后仍可能写入状态 | 仅 heartbeat 检测，缺少写入代际校验 | checkpoint 与 tool ledger 写入绑定 owner + fencing token | 陈旧 token 写入必须抛 `StaleLeaseWriteError` |
+| 合法 Worker 因墙钟过期被误判 stale | 写入 SQL 错把 lease 活性当作代际 | fencing 只判断单调 token，heartbeat 单独负责活性 | PostgreSQL 接管与边界契约测试 |
+| 已完成工具在恢复后被重复调用 | 恢复路径未优先读取结果账本 | 用确定性 idempotency key 回放已提交 Trace | 崩溃恢复用例断言 `replayed_from_cache` |
+| 未知写操作无法安全自动重放 | 外部副作用状态不确定 | 非 replay-safe 操作失败关闭 | 两个明确的恢复失败边界用例 |
+
+完整定位过程见 [`docs/ENGINEERING_LOG.md`](docs/ENGINEERING_LOG.md)，Runtime 与业务 V2 的所有权边界见 [`docs/adr/0001-v2-runtime-integration-boundary.md`](docs/adr/0001-v2-runtime-integration-boundary.md)。
+
+## Reproduce
 
 ```powershell
-$env:OPINION_AGENT_PROJECT = "C:\path\to\舆情研判Agent_高质量重建版"
-python -m pytest tests/integration/test_opinion_agent_adapter.py -q --basetemp .pytest-tmp-integration
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -e ".[dev]"
+.\.venv\Scripts\python.exe -m pytest -q --basetemp .pytest-tmp
+.\.venv\Scripts\python.exe scripts\run_acceptance_benchmark.py
 ```
 
-adapter 不复制舆情项目代码，通过 `graph_provider().invoke(state)` 契约连接。真实项目的 `redact_sensitive` 和安全校验应以 `input_transform`、`output_transform` 注入。
+真实 PostgreSQL 集成测试由 GitHub Actions 的独立 PostgreSQL 16 job 执行；本地运行需要安装 `.[dev,postgres]` 并设置 `RUNTIME_DATABASE_URL`。
 
-生产 V2 集成边界见 `docs/adr/0001-v2-runtime-integration-boundary.md`。
+## Repository map
 
-## 简历指标可执行基准
+```text
+src/agent_runtime_platform/       Runtime、backend、工具策略与评测门禁
+tests/                            单元、契约、恢复与 PostgreSQL 集成测试
+data/evaluation/acceptance_v1/    逐 case 机器可读验收报告
+scripts/                          验收基准入口
+docs/                             架构、ADR、来源边界与工程日志
+migrations/                       独立 runtime_* PostgreSQL schema
+```
 
-`python scripts/run_resume_target_live.py` 会真实执行 180 条 Runtime 功能任务、70 次故障
-注入和 60 组重复提交，而不是读取预填结果。当前门禁要求至少 173/180 通过、68/70
-恢复且额外最终写入为 0；逐 case Trace 保存在机器可读报告中。该基准覆盖 Runtime、
-checkpoint、恢复、审批、白名单和业务唯一键，但仍是本地确定性合成测试，不冒充生产
-PostgreSQL/Redis 故障演练或端到端 exactly-once 保证。
+## Engineering scope
 
-设计、来源边界和完整开发过程见 `docs/ARCHITECTURE.md`、`docs/SOURCE_BOUNDARY.md` 与 `docs/ENGINEERING_LOG.md`。
+- SQLite 用于本地可复现验证；PostgreSQL job 证明实现能在真实数据库服务上运行，但不是长期压测。
+- 幂等键与 fenced writes 防止已覆盖路径的重复提交和陈旧写入，不构成跨任意外部系统的 exactly-once 保证。
+- 延迟和成本门禁是同环境回归信号，不外推为生产容量或费用承诺。
+- 质量结论只适用于仓库中冻结的任务、阈值和版本。
+
+## License
+
+[MIT](LICENSE)

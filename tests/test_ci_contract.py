@@ -9,13 +9,16 @@ def test_ci_separates_unit_and_real_postgres_gates():
     text = workflow.read_text(encoding="utf-8")
 
     assert "unit-and-contract:" in text
-    assert 'python -m pytest -m "not integration"' in text
+    assert 'python -m pytest -m "not integration and not acceptance"' in text
     assert "postgres-integration:" in text
     assert "image: postgres:16-alpine" in text
     assert "RUNTIME_DATABASE_URL:" in text
     assert 'python -m pip install -e ".[dev,postgres]"' in text
     assert "tests/integration/test_postgres_runtime_backend.py" in text
-    assert "actions/upload-artifact@v4" in text
+    assert "actions/upload-artifact@v7" in text
+    assert "acceptance-benchmark:" in text
+    assert "python scripts/run_acceptance_benchmark.py" in text
+    assert "data/evaluation/acceptance_v1/report.json" in text
     assert "OPINION_AGENT_PROJECT" not in text
 
 

@@ -16,10 +16,10 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.11"
           cache: pip
@@ -35,13 +35,13 @@ jobs:
 
       - name: Run unit and contract tests
         run: >-
-          python -m pytest -m "not integration"
+          python -m pytest -m "not integration and not acceptance"
           --basetemp .pytest-tmp-unit
           --junitxml reports/unit-and-contract.xml
 
       - name: Upload unit test report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: unit-and-contract-report
           path: reports/unit-and-contract.xml
@@ -69,10 +69,10 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.11"
           cache: pip
@@ -94,8 +94,39 @@ jobs:
 
       - name: Upload PostgreSQL integration report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: postgres-integration-report
           path: reports/postgres-integration.xml
+          if-no-files-found: error
+
+  acceptance-benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install project
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+
+      - name: Execute acceptance benchmark
+        run: python scripts/run_acceptance_benchmark.py
+
+      - name: Upload machine-readable acceptance report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: acceptance-benchmark-report
+          path: data/evaluation/acceptance_v1/report.json
           if-no-files-found: error
