@@ -1,20 +1,37 @@
 # 可恢复 Agent Runtime 与质量门禁平台
 
 [![持续集成](https://github.com/KristenYue/agent-runtime-quality-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/KristenYue/agent-runtime-quality-platform/actions/workflows/ci.yml)
-![Python 3.11](https://img.shields.io/badge/Python-3.11-3776AB)
-![PostgreSQL 16](https://img.shields.io/badge/PostgreSQL-16-4169E1)
-[![功能契约](https://img.shields.io/badge/功能契约-180%2F180-2EA44F)](data/evaluation/acceptance_v1/report.json)
-[![故障处置](https://img.shields.io/badge/故障处置-70%2F70-2EA44F)](data/evaluation/acceptance_v1/report.json)
-[![重复最终写入](https://img.shields.io/badge/重复最终写入-0-2EA44F)](data/evaluation/acceptance_v1/report.json)
 [![开源许可](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-面向工具型 Agent 的可恢复执行内核与自动化质量门禁。
+**Python · PostgreSQL · 工具调用 · Checkpoint · 租约与 Fencing Token**
 
-项目将 Agent 的“模型决策—工具调用—任务完成”拆分为可持久化、可恢复、可审批、可追踪和可验收的执行过程，重点解决：
+面向需要多步调用工具的 Agent，提供独立的任务执行层。业务方定义 Planner 与工具，Runtime 负责检查权限和预算、执行工具、保存进度，以及在 Worker 异常退出后接管任务。每次执行都保留 Trace，可回查任务停在哪一步、调用了哪些工具、为何继续或终止。
 
-> Agent 执行到一半崩溃后如何继续、多个 Worker 如何安全接管、重复任务如何避免重复提交，以及外部副作用状态不确定时为什么必须安全失败。
+## 核心工程设计
+
+| 工程问题 | 实现机制 | 可观察行为 |
+| --- | --- | --- |
+| **Worker 崩溃后从哪里继续？** | 用 Checkpoint 保存执行进度，用幂等结果账本保存已提交的工具结果。接管后依据持久化记录恢复。 | 已提交且可复用的工具结果可以回放。外部副作用状态不确定时，任务可按策略安全终止，避免盲目重放。 |
+| **旧 Worker 恢复后能不能覆盖新结果？** | 租约与心跳维护执行权，接管产生新的 Fencing Token。存储侧检查写入令牌。 | 旧 Worker 即使继续运行，过期令牌也无法写入受保护的执行记录。 |
+| **同一任务提交两遍会发生什么？** | 将业务唯一键与幂等结果账本结合，在最终提交边界处理重复请求。 | 重复请求可以得到已有结果。同一实验任务组只产生一次最终写入。 |
+| **工具调用如何限制和审计？** | 通过工具注册、权限策略和预算检查约束调用，高风险动作进入人工审批，Trace 保留逐步执行记录。 | 恢复、拒绝、等待审批和完成都能从任务状态与轨迹回查。 |
+
+## 独立验收结果
+
+| 实验 | 结果 | 对应的工程行为 |
+| --- | --- | --- |
+| 功能契约 | **180 / 180 通过** | 覆盖正常执行、畸形动作处理、策略拒绝和人工审批。 |
+| 故障处置 | **70 / 70 得到受控结果** | **68 个恢复，2 个按设计安全终止**。 |
+| 重复提交 | **60 组，额外最终写入为 0** | 每组提交两次，最终写入一次。该结果对应实验中的最终提交边界。 |
+
+[查看验收原始报告](data/evaluation/acceptance_v1/report.json)
+
+## 业务接入
+
+[工业设备诊断与任务编排平台](https://github.com/KristenYue/telecom-network-incident-agent)复用这个 Runtime 执行诊断工具和检索运行手册。业务项目负责通信告警、设备状态和诊断规则，Runtime 负责执行步骤、权限与结果记录。通过[实际调用轨迹](https://github.com/KristenYue/telecom-network-incident-agent/blob/main/docs/device-api-smoke.jsonl)，可以看到工具调用和知识引用如何成为设备任务的诊断证据。
 
 ---
+
 
 ## 10 秒了解项目
 
