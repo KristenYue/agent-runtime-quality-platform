@@ -1,142 +1,83 @@
-# AI Agent Runtime — 智能任务编排与工具执行引擎
+# AI Agent Runtime｜智能任务编排与工具执行引擎
 
-[![CI](https://github.com/KristenYue/agent-runtime-quality-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/KristenYue/agent-runtime-quality-platform/actions/workflows/ci.yml)
+![项目能力与执行流程](docs/assets/overview.gif)
 
-## Project Overview
+<sub>架构流程示意动画 · [静态版本](docs/assets/overview.png) · 动画不作为实测结果。</sub>
 
-为工具型 AI 应用提供可复用的执行内核。业务项目只需要实现 Planner 和工具，本 Runtime 负责把模型动作转换为受控执行，保存任务上下文与工具结果，并支持人工确认、Checkpoint、恢复和统一 Trace。
+[返回技术作品集](https://github.com/KristenYue/KristenYue) · [机器人业务](https://github.com/KristenYue/telecom-network-incident-agent/blob/main/docs/ROBOT_DELIVERY.md) · [原生模型 SDK](https://github.com/KristenYue/edge-device-verification-lab/tree/main/inference_sdk) · [车辆 Agent](https://github.com/KristenYue/telecom-network-incident-agent/blob/main/docs/VEHICLE_ADAPTER.md)
 
-它解决的是 AI 产品中的长任务问题：模型已经决定“下一步做什么”之后，系统如何安全调用工具、记录进度、处理中断，并避免旧 Worker 或重复提交覆盖正确结果。
 
-## Application Scenarios
+**Python · Planner Protocol · Tool Registry · Checkpoint · PostgreSQL · Lease / Fencing**
 
-| 场景 | Runtime 提供的能力 |
-|---|---|
-| 工业设备诊断 | 执行设备状态和 Runbook 工具，保存真实 LLM 的多轮规划上下文 |
-| ROS 2 机器人技能 | 封装 Action 工具，记录进度、取消和最终结果 |
-| NLP / RAG Agent | 保存检索、Reviewer、人工复核和最终标签的状态迁移 |
-| 异步业务任务 | Worker 中断后由 Checkpoint、Lease 和 Fencing 支持安全接管 |
+模型决定下一步动作后，仍需要一个软件内核负责**校验、执行、记录、审批和恢复**。本项目实现可复用 Runtime，业务项目只注入 Planner 与工具，不重复构建任务执行机制。
 
-## Features & Real Demonstration
+**阅读定位：** [机器人技能](https://github.com/KristenYue/telecom-network-incident-agent/blob/main/docs/ROBOT_DELIVERY.md)、[工业设备诊断](https://github.com/KristenYue/telecom-network-incident-agent)、[车辆服务](https://github.com/KristenYue/telecom-network-incident-agent/blob/main/docs/VEHICLE_ADAPTER.md)在业务仓库完成；本页看它们共用的执行机制。后端 / 任务平台岗位优先阅读本仓库。
 
-### Planner → Tool → Observation → Result
-
-```python
-class Planner:
-    async def decide(self, *, request, observations, step):
-        if not observations:
-            return {
-                "kind": "tool",
-                "tool": {"tool_name": "read_equipment_snapshot", "arguments": {}},
-            }
-        return {"kind": "finish", "result": {"status": "completed"}}
-```
-
-工具通过显式注册表接入：
-
-```python
-registry = ToolRegistry([
-    ToolSpec("read_equipment_snapshot", read_snapshot, permission="read"),
-    ToolSpec("start_device", start_device, permission="dangerous"),
-])
-```
-
-Runtime 对每次执行生成：
-
-- Run / Step / ToolCall / Error 统一结构；
-- 工具参数、结果、耗时与幂等键；
-- `running`、`waiting_review`、`completed`、`failed_closed` 状态；
-- 可恢复的 Checkpoint 与人工确认上下文。
-
-真实业务示例：[Industrial AI Agent](https://github.com/KristenYue/telecom-network-incident-agent)使用本 Runtime 执行 3 轮真实模型规划和 2 次设备/知识工具调用；ROS 2 扩展将仿真巡检 Action 注册为 Runtime 工具。
-
-## System Architecture
+## 架构：从动作到结果
 
 ```mermaid
 flowchart LR
-    A[User Request] --> P[Provider-neutral Planner]
-    P --> C{Policy & Budget}
-    C -->|allowed| T[Tool Registry]
-    C -->|dangerous| H[Human Review]
-    C -->|blocked| F[failed_closed]
-    H -->|approved| T
-    T --> O[Tool Observation]
+    P[Planner 结构化动作] --> G{参数 / 权限 / 预算}
+    G -->|需确认| H[waiting_review]
+    H -->|显式批准| T[工具注册表]
+    G -->|允许| T
+    T --> O[工具观测]
     O --> P
-    P --> R[Structured Result]
-    T --> L[Idempotency Ledger]
-    O --> K[Checkpoint]
-    K --> B[(SQLite / PostgreSQL)]
-    B --> X[Lease · Heartbeat · Fencing]
-    R --> Z[Unified Trace]
+    T --> L[幂等账本]
+    O --> C[Checkpoint]
+    C --> DB[(SQLite / PostgreSQL)]
+    DB --> F[Lease / Heartbeat / Fencing]
+    P --> R[结果与统一 Trace]
 ```
 
-## Core Implementation
+## 三个有纵深的工程设计
 
-| 模块 | 作用 |
-|---|---|
-| Planner Protocol | 与具体模型供应商解耦，接收 request、observations 和 step，返回结构化动作 |
-| Tool Registry | 同步/异步工具、权限等级、上下文注入、白名单和危险操作确认 |
-| Execution Loop | 步骤预算、工具预算、批量并发调用、失败关闭和最终结果提交 |
-| Task Context | 保存观测、步骤、错误、待审批动作和工具调用数量 |
-| Checkpoint Backend | SQLite 本地开发；PostgreSQL 业务部署路径 |
-| Recovery | Lease、Heartbeat、单调 Fencing Token、缓存工具结果和安全重放判断 |
-| Trace | Run、Step、ToolCall 与 Error 的统一数据契约 |
-| Quality Gate | 可选的 baseline/candidate 成对回归接口，不与 Runtime 核心职责耦合 |
+| 工程问题 | 实现方式 | 为什么这样设计 |
+|---|---|---|
+| **模型可变，执行契约要稳定** | Provider-neutral Planner 接收 request / observations / step；输出 tool / finish 等结构化动作；工具显式注册并携带权限、上下文和 replay-safe 信息 | 业务和模型供应商更换时，执行状态、记录与审批语义保持一致。[契约](src/agent_runtime_platform/contracts.py) · [工具](src/agent_runtime_platform/tools.py) |
+| **重复投递与中断后怎么继续** | 每步保存 Checkpoint，已完成工具结果写账本；恢复时判断是否能安全重放，对不确定写副作用失败关闭 | 不把“重新跑一遍”当作恢复，也不对外部系统承诺任意 exactly-once。[主循环](src/agent_runtime_platform/runtime.py) |
+| **租约过期后旧 Worker 又恢复怎么办** | Lease / Heartbeat 检测失效，单调递增 Fencing Token 约束后续写入；PostgreSQL 拒绝旧代际更新 | 心跳只判断存活，Fencing 才能阻止过期执行者覆盖接管结果。[PostgreSQL](src/agent_runtime_platform/postgres.py) · [设计](docs/POSTGRES_BACKEND.md) |
 
-Lease 与 Fencing 不是为了强调数据库技巧，而是为了保证 AI 长任务在 Worker 崩溃、超时或接管时仍能维持单一有效执行权。幂等账本用于复用已完成的工具结果；对状态未知的非 replay-safe 写操作，Runtime 会失败关闭而不是盲目重放。
+## 量化结果与真实服务验收
 
-## Engineering Results
+| 验证对象 | 结果 | 证据与口径 |
+|---|---|---|
+| 任务契约 | **180 / 180** | 本地确定性合成任务，覆盖工具调用、状态与结果契约 |
+| 故障处置 | **70 / 70**：68 恢复、2 失败关闭 | 成功含义是按预期处理，不把安全终止记为业务恢复 |
+| 重复提交 | **60 组**，额外最终写入 **0** | 验证已登记调用与结果提交的幂等性 |
+| 真实 PostgreSQL / Redis | 接管、陈旧写拒绝、Pending 回收、Compose 启动通过 | 在业务集成仓库分别运行服务验收，非上述本地合成任务结果 |
 
-| 工程结果 | 说明 |
-|---|---|
-| Provider-neutral Planner + Tool Registry | 同一执行内核可服务工业诊断、ROS 2 与 NLP/RAG 业务 |
-| SQLite / PostgreSQL 双后端 | 本地快速运行与真实数据库接管路径分离 |
-| 人工确认与恢复 | 高风险动作暂停，审批后继续原任务上下文 |
-| Fenced state writes | 失租旧 Worker 不能覆盖新 Worker 的 Checkpoint 或工具结果 |
-| Deterministic idempotency key | 已完成工具在恢复时从账本回放，不重复执行 |
-| 统一 Trace | 业务层可以解释模型选择了什么工具、工具返回什么以及任务为何结束 |
+[逐 case 原始报告](data/evaluation/acceptance_v1/report.json) · [业务仓库服务验收](https://github.com/KristenYue/telecom-network-incident-agent/actions/runs/44509829892) · [可靠投递设计](https://github.com/KristenYue/telecom-network-incident-agent/blob/main/docs/RELIABLE_JOBS.md)
 
-## Industry Applications
+## 如何被三个方向复用
 
-- **半导体与 AI 芯片：** 研发 Agent、设备诊断、长时间分析任务和受控研发工具调用。
-- **智能汽车：** 车端/云端 Agent 的任务状态、工具执行、人工确认与恢复基础设施。
-- **具身智能：** 机器人技能注册、任务编排、Action 进度、取消和结果提交。
+| 业务 | Runtime 提供 | 业务 Adapter 提供 |
+|---|---|---|
+| 机器人任务 | Planner、工具执行、观测与 Checkpoint | ROS Action、进度、取消和机器人状态 |
+| 工业 / AI 芯片应用 | 多轮工具调用、预算、引用结果入 Trace | C++ 设备快照、原生知识工具 |
+| 车辆 Agent | 危险工具审批、工具账本、上下文恢复 | 遥测新鲜度、模拟空调、领域知识 |
 
-这些是 Runtime 的可迁移应用方向；仓库本身不宣称已部署到真实产线、量产车辆或机器人真机。
+机器人本地 Worker、设备驱动和模型推理引擎各自保留在对应仓库，本 Runtime 负责通用执行语义。
 
-## Quick Start
+## 快速运行
 
-```powershell
+```bash
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -e ".[dev]"
-.\.venv\Scripts\python.exe -m pytest -q --basetemp .pytest-tmp
-.\.venv\Scripts\python.exe scripts\run_acceptance_benchmark.py
+# 激活环境后
+python -m pip install -e '.[dev]'
+python scripts/run_acceptance_benchmark.py
+python -m pytest -q
 ```
 
-PostgreSQL 路径需要安装 `.[dev,postgres]` 并设置 `RUNTIME_DATABASE_URL`；GitHub Actions 使用 PostgreSQL 16 验证双 Worker 接管。
+PostgreSQL 路径安装 `.[dev,postgres]` 并设置 `RUNTIME_DATABASE_URL`；默认 SQLite 适用于本地演示。具体配置见 [PostgreSQL 后端](docs/POSTGRES_BACKEND.md)。
 
-## Evidence & Source Code
+## 深入源码与工程复盘
 
-| 内容 | 入口 |
-|---|---|
-| Runtime 主循环 | [runtime.py](src/agent_runtime_platform/runtime.py) |
-| Planner、动作与 Trace 契约 | [contracts.py](src/agent_runtime_platform/contracts.py) |
-| 工具注册与权限 | [tools.py](src/agent_runtime_platform/tools.py) |
-| PostgreSQL Backend | [postgres.py](src/agent_runtime_platform/postgres.py) · [设计文档](docs/POSTGRES_BACKEND.md) |
-| 架构与所有权边界 | [ARCHITECTURE.md](docs/ARCHITECTURE.md) · [ADR-0001](docs/adr/0001-v2-runtime-integration-boundary.md) |
-| 工业业务接入 | [Industrial AI Agent](https://github.com/KristenYue/telecom-network-incident-agent) |
-| 逐 case 验收报告 | [acceptance report](data/evaluation/acceptance_v1/report.json) |
+[架构](docs/ARCHITECTURE.md) · [集成边界 ADR](docs/adr/0001-v2-runtime-integration-boundary.md) · [工程日志](docs/ENGINEERING_LOG.md) · [源码责任边界](docs/SOURCE_BOUNDARY.md)
 
-## Validation & Limitations
+面试可沿三个问题阅读：**工具结果已落库但消息未确认，会发生什么？旧 Worker 为什么不能继续写？什么情况下宁可返回未知也不能重试？** 原始报告对应本地契约验证，PG / Redis 记录对应真实服务集成；两类结果分别保留。
 
-- 冻结验收包含 180 条功能任务、70 次故障处置和 60 组重复提交；这些数字验证当前契约，不代表生产 SLA。
-- PostgreSQL 测试验证 Lease 接管和陈旧 Fencing 写入拒绝，不是长期容量或高并发压测。
-- 幂等键与工具账本只覆盖已登记的调用，不能对任意外部系统提供 exactly-once 保证。
-- SQLite 用于本地开发，不承担多 Worker 生产协调。
-- 对无法确认是否已经产生副作用的写工具，恢复路径按设计失败关闭。
 
-详细问题定位和回归证据见 [ENGINEERING_LOG.md](docs/ENGINEERING_LOG.md) 与 [SOURCE_BOUNDARY.md](docs/SOURCE_BOUNDARY.md)。
+---
 
-## License
-
-[MIT](LICENSE)
+文档与结果口径：2026-11-19。功能以对应源码和运行记录为准；场景、执行环境和数据来源随结果一并标注。
